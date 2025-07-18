@@ -1,0 +1,7 @@
+git+https://github.com/huggingface/transformers.git
+accelerate
+datasets
+peft
+trl
+torch
+flask

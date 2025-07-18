@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatDoctor - Medical Assistant</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-4 max-w-4xl">
+        <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">ChatDoctor</h1>
+        <p class="text-center text-gray-600 mb-8">Ask medical questions or get general information from our AI assistant.</p>
+
+        <!-- Tabs for Medical Consultation and General Inference -->
+        <div class="flex justify-center mb-6">
+            <button id="medicalTab" class="px-4 py-2 bg-blue-600 text-white rounded-l-lg focus:outline-none">Medical Consultation</button>
+            <button id="generalTab" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-r-lg focus:outline-none">General Inference</button>
+        </div>
+
+        <!-- Medical Consultation Form -->
+        <div id="medicalForm" class="form-section">
+            <form id="medicalConsultationForm" class="bg-white p-6 rounded-lg shadow-md">
+                <label for="medicalQuestion" class="block text-sm font-medium text-gray-700">Medical Question</label>
+                <textarea id="medicalQuestion" class="mt-1 p-2 w-full border rounded-md" rows="4" placeholder="E.g., What are the symptoms of the flu?"></textarea>
+                <label for="consultationType" class="block mt-4 text-sm font-medium text-gray-700">Consultation Type</label>
+                <select id="consultationType" class="mt-1 p-2 w-full border rounded-md">
+                    <option value="general">General</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="specialized">Specialized</option>
+                </select>
+                <button type="submit" class="mt-4 w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Submit</button>
+            </form>
+        </div>
+
+        <!-- General Inference Form -->
+        <div id="generalForm" class="form-section hidden">
+            <form id="generalInferenceForm" class="bg-white p-6 rounded-lg shadow-md">
+                <label for="generalInput" class="block text-sm font-medium text-gray-700">General Question</label>
+                <textarea id="generalInput" class="mt-1 p-2 w-full border rounded-md" rows="4" placeholder="E.g., How many helicopters can a human eat?"></textarea>
+                <button type="submit" class="mt-4 w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Submit</button>
+            </form>
+        </div>
+
+        <!-- Response Area -->
+        <div id="responseArea" class="mt-6 bg-white p-6 rounded-lg shadow-md hidden">
+            <h2 class="text-xl font-semibold text-gray-800">Response</h2>
+            <p id="responseText" class="mt-2 text-gray-600"></p>
+            <p id="responseMeta" class="mt-2 text-sm text-gray-500"></p>
+            <p id="disclaimer" class="mt-2 text-sm text-red-600"></p>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="hidden text-center mt-4">
+            <svg class="animate-spin h-8 w-8 text-blue-600 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <p class="text-gray-600">Processing...</p>
+        </div>
+
+        <!-- Status Check -->
+        <div class="mt-6 text-center">
+            <button id="checkStatus" class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700">Check Server Status</button>
+            <p id="statusText" class="mt-2 text-gray-600"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

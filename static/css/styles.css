@@ -1,0 +1,10 @@
+/* Custom styles to complement Tailwind */
+.form-section {
+    transition: opacity 0.3s ease;
+}
+.form-section.hidden {
+    display: none;
+}
+#responseArea {
+    transition: opacity 0.3s ease;
+}
